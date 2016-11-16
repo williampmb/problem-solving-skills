@@ -1,3 +1,7 @@
+package uri.timelimitexceeded;
+
+
+
 
 import java.io.FileReader;
 
@@ -6,10 +10,15 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.Arrays;
+import java.util.BitSet;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
+import java.util.Set;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -20,17 +29,18 @@ import java.util.Queue;
  *
  * @author William
  */
-public class GrowinStrings_1141_AhoCarosickAlg {
+public class GrowinStrings_1141_AhoCarosickAlg1_COPY3 {
 
     private static int MAX_ALPHABET = 26;
     private static int FAIL = -1;
-    private static int[] out;
+    private static BitSet[] out;
     private static int[] f;
     private static int[][] g;
-    private static Map storeSeq;
+    private static Map<String, Integer> storeSeq;
 
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader("src/input.txt"));
+        long startTime = System.currentTimeMillis();
+        BufferedReader br = new BufferedReader(new FileReader("src/input_1.txt"));
         // BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
@@ -52,6 +62,13 @@ public class GrowinStrings_1141_AhoCarosickAlg {
                 totalStates += dictionary[i].length();
             }
             totalStates += 1;
+            Arrays.sort(dictionary, new java.util.Comparator<String>() {
+                @Override
+                public int compare(String o1, String o2) {
+                    return Integer.compare(o1.length(), o2.length());
+                }
+            });
+
             biggestSequence = ahoCorasickAlgoritm(dictionary, totalStates);
             result.append(biggestSequence + "\n");
             numWords = Integer.valueOf(br.readLine());
@@ -59,13 +76,21 @@ public class GrowinStrings_1141_AhoCarosickAlg {
 
         bw.write(result.toString());
         bw.flush();
+        long stopTime = System.currentTimeMillis();
+        long elapsedTime = stopTime - startTime;
+        System.out.println(elapsedTime);
+
     }
 
     private static int ahoCorasickAlgoritm(String[] dictionary, int totalStates) {
         g = new int[totalStates][MAX_ALPHABET];
         f = new int[totalStates];
-        out = new int[totalStates];
-        java.util.Arrays.fill(out, 0);
+        out = new BitSet[totalStates];
+        for (int i = 0; i < out.length; i++) {
+            out[i] = new BitSet(dictionary.length);
+            //out[i].set(0, out[i].length(), false);
+        }
+
         java.util.Arrays.fill(f, -1);
         for (int[] row : g) {
             java.util.Arrays.fill(row, FAIL);
@@ -130,8 +155,10 @@ public class GrowinStrings_1141_AhoCarosickAlg {
                 state = newState;
             }
         }
-
-        out[state] |= (1 << posWord);
+        BitSet a = new BitSet();
+        //  a.clear();
+        a.set(posWord);
+        out[state].or(a);
 
         return newState;
     }
@@ -157,7 +184,8 @@ public class GrowinStrings_1141_AhoCarosickAlg {
                         state = f[state];
                     }
                     f[s] = g[state][i];
-                    out[s] |= out[f[s]];
+                    out[s].or(out[f[s]]);
+
                 }
             }
         }
@@ -166,9 +194,7 @@ public class GrowinStrings_1141_AhoCarosickAlg {
     private static int patternMatchingMachine(String input, String[] dic) {
         int state = 0;
         int longestSequence = 0;
-        int seqDicj;
-       
-        
+        Set<String> allInputMatch = new HashSet<String>();
         if (storeSeq.get(input) == null) {
             for (int i = 0; i < input.length(); i++) {
 
@@ -177,26 +203,18 @@ public class GrowinStrings_1141_AhoCarosickAlg {
                 }
                 int ai = input.charAt(i) - 97;
                 state = g[state][ai];
-
-                if (out[state] != 0) {
+                if (out[state].cardinality() != 0) {
                     for (int j = 0; j < dic.length; j++) {
-                        int a = out[state] & (1 << j);
-                        if (a != 0) {
+
+                        BitSet bs = new BitSet();
+                        // bs.clear();
+                        bs.set(j);
+                        BitSet clone = (BitSet) out[state].clone();
+                        clone.and(bs);
+                        if (clone.cardinality() != 0) {
                             if (!dic[j].equals(input)) {
-                                if (storeSeq.get(dic[j]) != null) {
-                                    seqDicj = (int) storeSeq.get(dic[j]);
-                                } else {
-                                    seqDicj = patternMatchingMachine(dic[j], dic);
-                                    storeSeq.put(dic[j], seqDicj);
-                                }
+                                allInputMatch.add(dic[j]);
 
-                                if (longestSequence < seqDicj) {
-                                    longestSequence = seqDicj;
-                                }
-                            } else {
-                                longestSequence += 1;
-
-                                storeSeq.put(dic[j], longestSequence);
                             }
                         }
                     }
@@ -207,6 +225,26 @@ public class GrowinStrings_1141_AhoCarosickAlg {
             longestSequence = (int) storeSeq.get(input);
         }
 
+        if (!allInputMatch.isEmpty()) {
+            Iterator<String> iterator = allInputMatch.iterator();
+            while (iterator.hasNext()) {
+                int seq;
+                String next = iterator.next();
+                if (storeSeq.get(next) == null) {
+                    seq = patternMatchingMachine(next, dic);
+                    storeSeq.put(next, seq);
+                } else {
+                    seq = (int) storeSeq.get(next);
+                }
+
+                if (seq > longestSequence) {
+                    longestSequence = seq;
+                }
+            }
+        }
+
+        longestSequence++;
+        storeSeq.put(input, longestSequence);
         return longestSequence;
 
     }

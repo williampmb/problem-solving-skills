@@ -1,3 +1,5 @@
+package uri.timelimitexceeded;
+
 
 import java.io.FileReader;
 
@@ -6,8 +8,6 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.Arrays;
-import java.util.BitSet;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -22,17 +22,17 @@ import java.util.Queue;
  *
  * @author William
  */
-public class GrowinStrings_1141_AhoCarosickAlg1_COPY2 {
+public class GrowinStrings_1141_AhoCarosickAlg {
 
     private static int MAX_ALPHABET = 26;
     private static int FAIL = -1;
-    private static BitSet[] out;
+    private static int[] out;
     private static int[] f;
     private static int[][] g;
     private static Map storeSeq;
 
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader("src/input.txt"));
+        BufferedReader br = new BufferedReader(new FileReader("src/uri/timelimitexceeded/input_1141.txt"));
         // BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
@@ -54,13 +54,6 @@ public class GrowinStrings_1141_AhoCarosickAlg1_COPY2 {
                 totalStates += dictionary[i].length();
             }
             totalStates += 1;
-//            Arrays.sort(dictionary, new java.util.Comparator<String>() {
-//                @Override
-//                public int compare(String o1, String o2) {
-//                    return Integer.compare(o1.length(), o2.length());
-//                }
-//            });
-
             biggestSequence = ahoCorasickAlgoritm(dictionary, totalStates);
             result.append(biggestSequence + "\n");
             numWords = Integer.valueOf(br.readLine());
@@ -73,12 +66,8 @@ public class GrowinStrings_1141_AhoCarosickAlg1_COPY2 {
     private static int ahoCorasickAlgoritm(String[] dictionary, int totalStates) {
         g = new int[totalStates][MAX_ALPHABET];
         f = new int[totalStates];
-        out = new BitSet[totalStates];
-        for (int i = 0; i < out.length; i++) {
-            out[i] = new BitSet(dictionary.length);
-            out[i].set(0, out[i].length(), false);
-        }
-
+        out = new int[totalStates];
+        java.util.Arrays.fill(out, 0);
         java.util.Arrays.fill(f, -1);
         for (int[] row : g) {
             java.util.Arrays.fill(row, FAIL);
@@ -143,10 +132,8 @@ public class GrowinStrings_1141_AhoCarosickAlg1_COPY2 {
                 state = newState;
             }
         }
-        BitSet a = new BitSet();
-        a.clear();
-        a.set(posWord);
-        out[state].or(a);
+
+        out[state] |= (1 << posWord);
 
         return newState;
     }
@@ -172,8 +159,7 @@ public class GrowinStrings_1141_AhoCarosickAlg1_COPY2 {
                         state = f[state];
                     }
                     f[s] = g[state][i];
-                    out[s].or(out[f[s]]);
-
+                    out[s] |= out[f[s]];
                 }
             }
         }
@@ -183,7 +169,8 @@ public class GrowinStrings_1141_AhoCarosickAlg1_COPY2 {
         int state = 0;
         int longestSequence = 0;
         int seqDicj;
-
+       
+        
         if (storeSeq.get(input) == null) {
             for (int i = 0; i < input.length(); i++) {
 
@@ -193,15 +180,11 @@ public class GrowinStrings_1141_AhoCarosickAlg1_COPY2 {
                 int ai = input.charAt(i) - 97;
                 state = g[state][ai];
 
-                if (out[state].cardinality() != 0) {
+                if (out[state] != 0) {
                     for (int j = 0; j < dic.length; j++) {
-
-                        BitSet bs = new BitSet();
-                        bs.clear();
-                        bs.set(j);
-                        BitSet clone = (BitSet) out[state].clone();
-                        clone.and(bs);
-                        if (clone.cardinality() != 0) {
+                        //DIC.LENGHT should be up to 32 or it will break
+                        int a = out[state] & (1 << j);
+                        if (a != 0) {
                             if (!dic[j].equals(input)) {
                                 if (storeSeq.get(dic[j]) != null) {
                                     seqDicj = (int) storeSeq.get(dic[j]);
