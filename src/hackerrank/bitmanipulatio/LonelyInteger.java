@@ -1,4 +1,4 @@
-package hackrank.worldcodespring9;
+package hackerrank.bitmanipulatio;
 
 
 import java.io.BufferedReader;
@@ -12,31 +12,30 @@ import java.io.OutputStreamWriter;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author William
  */
-public class GradingStudents {
-    public static void main(String[] args) throws IOException{
+public class LonelyInteger {
+
+    public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        
-        int grades = Integer.parseInt(br.readLine());
-        
-        while(grades != 0){
-            int grade = Integer.parseInt(br.readLine());
-            if(grade+2>=40){
-                if((grade+1)%5==0){
-                    grade+=1;
-                }else if((grade+2)%5==0){
-                    grade+=2;
-                }
-                
-            }
-            bw.write(grade+"\n");
-            grades--;
-        }
+
+        String n = br.readLine();
+        String strArrayLine = br.readLine();
+        String[] arrayStr = strArrayLine.split(" ");
+
+        bw.write(lonelyInteger(arrayStr) + "\n");
         bw.flush();
     }
+
+    private static int lonelyInteger(String[] a) {
+        int lonely = 0;
+        for (String i : a) {
+            lonely ^= Integer.valueOf(i);
+        }
+        return lonely;
+    }
+
 }

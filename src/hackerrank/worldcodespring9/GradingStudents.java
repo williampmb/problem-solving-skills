@@ -1,4 +1,4 @@
-package hackrank.bitmanipulatio;
+package hackerrank.worldcodespring9;
 
 
 import java.io.BufferedReader;
@@ -12,30 +12,31 @@ import java.io.OutputStreamWriter;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 /**
  *
  * @author William
  */
-public class MaximizingXOR {
-
-    public static void main(String[] args) throws IOException {
+public class GradingStudents {
+    public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-
-        int left = Integer.parseInt(br.readLine());
-        int right = Integer.parseInt(br.readLine());
-        int max = 0;
-        int xor = 0;
-        for (int i = left; i <= right; i++) {
-            for (int j = i; j <= right; j++) {
-                xor = i ^ j;
-                if (xor > max) {
-                    max = xor;
+        
+        int grades = Integer.parseInt(br.readLine());
+        
+        while(grades != 0){
+            int grade = Integer.parseInt(br.readLine());
+            if(grade+2>=40){
+                if((grade+1)%5==0){
+                    grade+=1;
+                }else if((grade+2)%5==0){
+                    grade+=2;
                 }
+                
             }
+            bw.write(grade+"\n");
+            grades--;
         }
-        bw.write(max+"\n");
         bw.flush();
-
     }
 }

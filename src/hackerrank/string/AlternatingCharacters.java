@@ -1,4 +1,4 @@
-package hackrank.string;
+package hackerrank.string;
 
 
 import java.io.BufferedWriter;
@@ -15,33 +15,31 @@ import java.util.Scanner;
  *
  * @author William
  */
-public class TwoStrings {
+public class AlternatingCharacters {
 
-    //Big-O: Time: t (test times) * twoString = O(t (n+m))
     public static void main(String[] args) throws IOException {
         Scanner s = new Scanner(System.in);
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         int test = Integer.parseInt(s.nextLine());
         while (test != 0) {
-            String l1 = s.nextLine();
-            String l2 = s.nextLine();
-            String isSubstring = twoString(l1, l2);
-            bw.write(isSubstring + "\n");
+            String line = s.nextLine();
+            int deletions = formatLikeWanted(line);
+            bw.write(deletions + "\n");
             test--;
         }
         bw.flush();
     }
 
-    //Big-O: Time: n (l1.length) + m(l2.length) = O(n+m)
-    //Space O(1)
-    private static String twoString(String l1, String l2) {
-        int[] db = new int[26];
-        for(int i =0 ;i < l1.length(); i++){
-           db[l1.charAt(i)-97]++;
+    private static int formatLikeWanted(String line) {
+        char lookAt = line.charAt(0);
+        int delCount = 0;
+        for (int i = 1; i < line.length(); i++) {
+            if(lookAt == line.charAt(i)){
+                delCount++;
+            }else{
+                lookAt = line.charAt(i);
+            }
         }
-        for(int j =0 ;j < l2.length(); j++){
-            if(db[l2.charAt(j)-97]>0) return "YES";
-        }
-        return "NO";
+        return delCount;
     }
 }

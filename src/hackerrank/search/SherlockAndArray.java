@@ -1,4 +1,4 @@
-package hackrank.search;
+package hackerrank.search;
 
 
 import java.io.BufferedReader;

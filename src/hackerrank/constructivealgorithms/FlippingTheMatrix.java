@@ -1,4 +1,4 @@
-package hackrank.constructivealgorithms;
+package hackerrank.constructivealgorithms;
 
 
 import java.io.BufferedReader;

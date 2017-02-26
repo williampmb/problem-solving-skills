@@ -1,4 +1,4 @@
-package hackrank.bitmanipulatio;
+package hackerrank.bitmanipulatio;
 
 
 import java.io.BufferedWriter;

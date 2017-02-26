@@ -1,4 +1,4 @@
-package hackrank.string;
+package hackerrank.string;
 
 
 import java.io.BufferedWriter;

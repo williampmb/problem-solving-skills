@@ -1,4 +1,4 @@
-package hackrank.sorting;
+package hackerrank.sorting;
 
 
 import java.io.File;

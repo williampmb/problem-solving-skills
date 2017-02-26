@@ -1,3 +1,5 @@
+package hackerrank.string;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;

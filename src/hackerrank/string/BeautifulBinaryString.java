@@ -1,4 +1,4 @@
-package hackrank.string;
+package hackerrank.string;
 
 
 import java.util.Scanner;
@@ -13,17 +13,21 @@ import java.util.Scanner;
  *
  * @author William
  */
-public class CamelCase {
+public class BeautifulBinaryString {
     public static void main(String[] args){
         Scanner s = new Scanner(System.in);
         
+        int lenght = s.nextInt();
         String line = s.next();
-        int words=0;
-        for(char c : line.toCharArray()){
-            if(c>64 && c<92){
-                words++;
+        int steps = 0;
+        for(int i =0; i < lenght;i++){
+            if(line.charAt(i)=='0'){
+                if(i < lenght-2 && line.charAt(i+1) == '1' && line.charAt(i+2) == '0' ){
+                    steps++;
+                    i+=2;
+                }
             }
         }
-        System.out.println(++words);
+        System.out.println(steps);
     }
 }

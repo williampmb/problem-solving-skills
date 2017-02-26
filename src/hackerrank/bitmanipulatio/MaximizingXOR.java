@@ -1,4 +1,4 @@
-package hackrank.bitmanipulatio;
+package hackerrank.bitmanipulatio;
 
 
 import java.io.BufferedReader;
@@ -16,26 +16,26 @@ import java.io.OutputStreamWriter;
  *
  * @author William
  */
-public class LonelyInteger {
+public class MaximizingXOR {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        String n = br.readLine();
-        String strArrayLine = br.readLine();
-        String[] arrayStr = strArrayLine.split(" ");
-
-        bw.write(lonelyInteger(arrayStr) + "\n");
-        bw.flush();
-    }
-
-    private static int lonelyInteger(String[] a) {
-        int lonely = 0;
-        for (String i : a) {
-            lonely ^= Integer.valueOf(i);
+        int left = Integer.parseInt(br.readLine());
+        int right = Integer.parseInt(br.readLine());
+        int max = 0;
+        int xor = 0;
+        for (int i = left; i <= right; i++) {
+            for (int j = i; j <= right; j++) {
+                xor = i ^ j;
+                if (xor > max) {
+                    max = xor;
+                }
+            }
         }
-        return lonely;
-    }
+        bw.write(max+"\n");
+        bw.flush();
 
+    }
 }
