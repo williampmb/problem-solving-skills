@@ -1,3 +1,5 @@
+package hackerrank.arrays;
+
 
 import java.util.Scanner;
 
