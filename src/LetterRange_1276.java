@@ -19,7 +19,6 @@ import java.io.OutputStreamWriter;
 public class LetterRange_1276 {
 
     public static void main(String[] args) throws IOException {
-        
         BufferedReader br = new BufferedReader(new FileReader("src/input.txt"));
         //BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
