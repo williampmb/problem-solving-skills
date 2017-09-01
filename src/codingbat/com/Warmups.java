@@ -19,7 +19,7 @@ import java.util.Map;
 public class Warmups {
      public static void main(String[] args){
         int[] a = {3, 1, 1, 3, 4, 4};
-        a = fix34(a);
+        a = squareUp(6);
         for(int i : a){
             System.out.print(i);
 
@@ -203,6 +203,25 @@ public boolean linearIn(int[] outer, int[] inner) {
 
 
 //-------------------
+//TLE with n=6 on the jury
+public static int[] squareUp(int n) {
+  if(n ==0) return new int[1];
+  int length = n*n;
+  int[] res = new int[length];
+  int count =0;
+  int pointer = length -n;
+  int start;
+  
+  while(pointer>=0){
+    start = length -n -n*count;
+    for(int i = count; i < n ; i++){
+      res[start+i] = n-i;
+    }
+    count++;
+    pointer -=n;
+  }
+  return res;
+}
 
 
 }
