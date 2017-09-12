@@ -25,6 +25,7 @@ public class MySqrt {
     }
     
     //Binary Search solution
+    // The idea is the reduction of the possibles by half every iteration
     public int mySqrt(int x) {
         long rangeR = x, rangeL = 0;
         
