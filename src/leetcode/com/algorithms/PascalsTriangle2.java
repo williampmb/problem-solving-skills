@@ -27,6 +27,7 @@ public class PascalsTriangle2 {
 
     }
 
+    //O(k) complexity. It just adds from end to the begining.
     public List<Integer> getRow(int rowIndex) {
         int[] row = new int[rowIndex + 1];
 
