@@ -19,6 +19,8 @@ public class IntersectionOfTwoArrays {
 
     //Time Complexity O(n+m)
     //Space Complexity O(m)
+    // Add one of them into a hashset and check if there are elements from nums2
+    // in it.
     public int[] intersection2(int[] nums1, int[] nums2) {
         if (nums1 == null || nums2 == null || nums1.length == 0 || nums2.length == 0) {
             return new int[0];
@@ -49,6 +51,7 @@ public class IntersectionOfTwoArrays {
 
     //Time Complexity O(nLogn + mLogm)
     //Space Complexity O(d) where d is the bigger array size
+    //Sort both arrays and check if there has commum while go through them
     public int[] intersection(int[] nums1, int[] nums2) {
         if (nums1 == null || nums2 == null || nums1.length == 0 || nums2.length == 0) {
             return new int[0];
