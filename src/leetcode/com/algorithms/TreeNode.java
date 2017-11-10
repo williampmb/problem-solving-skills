@@ -54,5 +54,9 @@ public class TreeNode {
             printPreOrder(root.right);
         }
     }
+    
+    public boolean isLeaft(){
+        return left == null && right == null;
+    }
 
 }
