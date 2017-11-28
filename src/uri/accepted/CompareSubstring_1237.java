@@ -66,4 +66,45 @@ public class CompareSubstring_1237 {
         bw.write(result.toString());
         bw.flush();
     }
+    
+    //Dynamic programing
+    public static void main2(String[] args) throws IOException {
+
+        InputStreamReader is = new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(is);
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringBuilder output = new StringBuilder();
+        int[][] match;
+        String s1 = br.readLine();
+        while (s1 != null && !s1.equals("")) {
+            String s2 = br.readLine();
+            match = new int[50][50];
+            int len1 = s1.length();
+            int len2 = s2.length();
+            int max = 0;
+
+            for (int i = 0; i < len1; i++) {
+                for (int j = 0; j < len2; j++) {
+                    if (s1.charAt(i) == s2.charAt(j)) {
+                        if (i != 0 && j != 0) {
+                            match[i][j] = match[i - 1][j - 1] + 1;
+                        } else {
+                            match[i][j] = 1;
+                        }
+                        if (match[i][j] > max) {
+                            max = match[i][j];
+                        }
+                    }
+                }
+            }
+            output.append(max + "\n");
+            s1 = br.readLine();
+        }
+        bw.write(output.toString());
+        bw.flush();
+        bw.close();
+        br.close();
+
+    }
+    
 }
