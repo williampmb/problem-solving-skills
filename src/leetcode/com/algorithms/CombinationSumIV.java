@@ -24,6 +24,7 @@ public class CombinationSumIV {
 
     public int combinationSum4(int[] nums, int target) {
         Map<Integer, Integer> lookAt = new HashMap<>();
+        //sorting the array improves from 16ms to 6 ms on the tests
         Arrays.sort(nums);
         return backtrack(nums, target, lookAt);
     }
@@ -51,7 +52,7 @@ public class CombinationSumIV {
         return res;
     }
 
-    //top-down approach beats DP. 1ms
+    //top-down approach beats DP. 1ms @FreeTymeKiyan at leetcode
     public int combinationSum4Topdown(int[] nums, int target) {
         int[] comb = new int[target + 1];
         comb[0] = 1;
