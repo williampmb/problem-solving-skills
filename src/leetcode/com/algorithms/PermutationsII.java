@@ -14,10 +14,11 @@ import java.util.List;
  * @author William Barbosa
  */
 public class PermutationsII {
+    
 
     public static void main(String[] args) {
         PermutationsII p = new PermutationsII();
-        int[] nums = {1, 1, 1, 2};
+        int[] nums = {2,2,1,1};
         List<List<Integer>> permute = p.permuteUnique(nums);
 
         for (List<Integer> l : permute) {
