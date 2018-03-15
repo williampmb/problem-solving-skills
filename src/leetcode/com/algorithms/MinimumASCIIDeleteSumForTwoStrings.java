@@ -11,18 +11,19 @@ package leetcode.com.algorithms;
  */
 public class MinimumASCIIDeleteSumForTwoStrings {
 
+    //author: @DonaldTrump at leetcode
     public int minimumDeleteSum(String s1, String s2) {
         int[][] count = new int[s1.length() + 1][s2.length() + 1];
 
-        for (int i = 1; i < s1.length(); i++) {
+        for (int i = 1; i < s1.length()+1; i++) {
             count[i][0] = count[i - 1][0] + s1.charAt(i - 1);
         }
-        for (int i = 1; i < s2.length(); i++) {
+        for (int i = 1; i < s2.length()+1; i++) {
             count[0][i] = count[0][i - 1] + s2.charAt(i - 1);
         }
 
-        for (int row = 1; row < s1.length() + 1; row++) {
-            for (int col = 1; col < s2.length() + 1; col++) {
+        for (int row = 1; row < count.length ; row++) {
+            for (int col = 1; col < count[0].length; col++) {
                 int DeleteBothChar = s1.charAt(row - 1) != s2.charAt(col - 1) ? s1.charAt(row - 1) + s2.charAt(col - 1) : 0;
                 count[row][col] = Math.min(count[row - 1][col] + s1.charAt(row - 1), count[row][col - 1] + s2.charAt(col - 1));
                 count[row][col] = Math.min(count[row][col], count[row - 1][col - 1] + DeleteBothChar);
