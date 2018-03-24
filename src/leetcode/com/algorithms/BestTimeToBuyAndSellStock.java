@@ -13,7 +13,7 @@ public class BestTimeToBuyAndSellStock {
 
     public static void main(String[] args) {
         BestTimeToBuyAndSellStock b = new BestTimeToBuyAndSellStock();
-        int[] a = {5,7,2,4,-5,2,7,6,2};
+        int[] a = {5, 7, 2, 4, -5, 2, 7, 6, 2};
         int max = b.maxProfit2(a);
         System.out.println(max);
 
@@ -26,7 +26,7 @@ public class BestTimeToBuyAndSellStock {
             if (min > i) {
                 min = i;
                 max = -1;
-            } else if ( max < i && i > min) {
+            } else if (max < i && i > min) {
                 max = i;
                 if (profit < max - min) {
                     profit = max - min;
@@ -38,14 +38,27 @@ public class BestTimeToBuyAndSellStock {
         }
         return profit;
     }
-    
-    //Kadane's Algorithm
+
+    //Kadane's Algorithm: largest sum contigous subarray
+    //https://www.geeksforgeeks.org/largest-sum-contiguous-subarray/
     public int maxProfit2(int[] prices) {
         int maxCur = 0, maxSoFar = 0;
-        for(int i = 1; i < prices.length; i++) {
-            maxCur = Math.max(0, maxCur += prices[i] - prices[i-1]);
+        for (int i = 1; i < prices.length; i++) {
+            maxCur = Math.max(0, maxCur += prices[i] - prices[i - 1]);
             maxSoFar = Math.max(maxCur, maxSoFar);
         }
         return maxSoFar;
+    }
+
+    //a simpler way of doing it
+    public int maxProfit3(int[] prices) {
+        int T_i10 = 0, T_i11 = Integer.MIN_VALUE;
+
+        for (int price : prices) {
+            T_i10 = Math.max(T_i10, T_i11 + price);
+            T_i11 = Math.max(T_i11, -price);
+        }
+
+        return T_i10;
     }
 }

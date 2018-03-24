@@ -25,6 +25,9 @@ public class BestTimeToBuyAndSellStockII {
     // buy again on the day 2 and sell on the day 3. this will be the same profit
     // than buying on the day one and selling in the day 3
     public int maxProfit(int[] prices) {
+        if (prices == null) {
+            return 0;
+        }
         int profit = 0;
         for (int i = 0; i < prices.length - 1; i++) {
             if (prices[i] < prices[i + 1]) {
@@ -38,6 +41,9 @@ public class BestTimeToBuyAndSellStockII {
     // subarrays. for instance,  {4, 3, 6, 7, 1, 2, 10}. we would take
     // {3, 6, 7} subarray and {1, 2, 10}.
     public int maxProfit2(int[] prices) {
+        if (prices == null) {
+            return 0;
+        }
         int profit = 0, profitDaySell = 0, profitDayBuy = Integer.MIN_VALUE;
         for (int i = 0; i < prices.length; i++) {
             profitDaySell = Math.max(profitDaySell, profitDayBuy + prices[i]);
