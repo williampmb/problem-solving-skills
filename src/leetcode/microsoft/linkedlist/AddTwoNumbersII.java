@@ -31,7 +31,6 @@ public class AddTwoNumbersII {
 
         SumState state = new SumState();
 
-        ListNode head = null;
         if (size1 > size2) {
             state = addTwoNumbers(l1, size1, l2, size2, state);
         } else {
@@ -43,9 +42,7 @@ public class AddTwoNumbersII {
             cur.next = state.numb;
             state.numb = cur;
         }
-
         return state.numb;
-
     }
 
     private int listSize(ListNode l2) {
