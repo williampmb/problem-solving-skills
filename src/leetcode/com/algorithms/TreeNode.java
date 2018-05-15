@@ -11,15 +11,15 @@ package leetcode.com.algorithms;
  */
 public class TreeNode {
 
-    int val;
-    TreeNode left;
-    TreeNode right;
+    public int val;
+    public TreeNode left;
+    public TreeNode right;
 
     TreeNode(int x) {
         val = x;
     }
 
-    static TreeNode generateFullTree(int depth) {
+    public static TreeNode generateFullTree(int depth) {
         if (depth < 1) {
             return null;
         }
