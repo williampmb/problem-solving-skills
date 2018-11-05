@@ -13,7 +13,7 @@ public class SortArrayByParityII {
     /*
     *   O(n) Time complexity
     *   O(1) Space complexity
-    *   It solves the problem in-place
+    *   It solves the problem in-place.
     */
     public int[] sortArrayByParityII(int[] A) {
        int odd =0, even=1, size = A.length-1;
