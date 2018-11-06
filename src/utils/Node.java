@@ -12,7 +12,9 @@ import java.util.List;
  * @author William Barbosa
  */
 public class Node {
-    
+    /**
+     * Based on leetcode.com structure 
+     */
     public int val;
     public List<Node> children;
 
