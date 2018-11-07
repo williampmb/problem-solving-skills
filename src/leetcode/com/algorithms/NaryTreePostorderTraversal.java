@@ -18,7 +18,22 @@ public class NaryTreePostorderTraversal {
     
     //TODO: Implement DFS
     // BOTTOM->TOP LEFT->RIGHT
-
+    
+    public List<Integer> postorderRecursively(Node root) {
+        List<Integer> ans = new ArrayList<>();
+        postorderRecursively(root,ans);
+    
+        return ans;
+    }
+    private void postorderRecursively(Node root, List<Integer> ans) {
+        if(root!= null){
+            for(Node c : root.children){
+                postorderRecursively(c, ans);
+            }
+            ans.add(root.val);
+        }
+    }
+    
     public List<Integer> postorder(Node root) {
         List<Integer> ans = new ArrayList<>();
         if (root != null) {
@@ -40,4 +55,5 @@ public class NaryTreePostorderTraversal {
 
         return ans;
     }
+
 }
