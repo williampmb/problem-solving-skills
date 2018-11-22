@@ -56,7 +56,6 @@ public class DIStringMatch {
         return ans;
     }
     
-    
     //Same algorithm but better looking
      public int[] diStringMatch2(String S) {
         int size = S.length(),start=0,end=S.length();
