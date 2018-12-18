@@ -5,8 +5,6 @@
  */
 package leetcode.com.algorithms;
 
-import java.util.LinkedList;
-import java.util.Queue;
 
 /**
  *
