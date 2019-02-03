@@ -5,7 +5,9 @@
  */
 package leetcode.com.algorithms;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -16,6 +18,21 @@ public class JewelsAndStones {
 
     public static void main(String[] args) {
 
+    }
+
+    public int numJewelsInStones3(String J, String S) {
+
+        Set<Character> jew = new HashSet<>();
+        List<Character> stones = new ArrayList<>();
+        for (char c : J.toCharArray()) {
+            jew.add(c);
+        }
+        for(char c: S.toCharArray()){
+            if(jew.contains(c)){
+                stones.add(c);
+            }
+        }
+        return stones.size();
     }
 
     public int numJewelsInStones(String J, String S) {
