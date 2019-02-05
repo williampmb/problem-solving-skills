@@ -16,6 +16,37 @@ import java.util.Map;
  */
 public class FindAndReplacePattern {
 
+    public List<String> findAndReplacePattern(String[] words, String pattern) {
+        int[] db;
+        boolean[] existMap;
+        int n = pattern.length();
+        List<String> ans = new ArrayList<>();
+        for (String s : words) {
+            db = new int[257];
+            existMap = new boolean[257];
+            boolean mapped = true;
+            for (int i = 0; i < n; i++) {
+                char ls = s.charAt(i);
+                char lp = pattern.charAt(i);
+
+                if (db[lp + 1] == 0 && !existMap[ls+1]) {
+                    db[lp + 1] = ls;
+                    existMap[ls+1] = true;
+                } else if (db[lp + 1] != ls) {
+                    mapped = false;
+                    break;
+                }
+            }
+            if (mapped) {
+                ans.add(s);
+
+            }
+
+        }
+        return ans;
+
+    }
+
     public List<String> findAndReplacePattern2(String[] words, String pattern) {
         Map<Character, Character> map;
         List<String> ans = new ArrayList<>();
@@ -34,7 +65,7 @@ public class FindAndReplacePattern {
                     } else if (map.containsKey(letterP) && !map.containsKey(letterS) || (!map.containsKey(letterP) && map.containsKey(letterS)) || (map.get(letterP) != letterS || letterP != map.get(letterS))) {
                         mapped = false;
                         break;
-                    } 
+                    }
 
                 }
                 if (mapped) {
