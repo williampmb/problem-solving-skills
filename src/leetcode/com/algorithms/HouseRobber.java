@@ -10,6 +10,19 @@ package leetcode.com.algorithms;
  * @author William Barbosa
  */
 public class HouseRobber {
+    
+    //reviewing
+     public int rob3(int[] nums) {
+        if(nums == null || nums.length ==0) return 0;
+        int s = nums.length;
+        int r = nums[0],nr=0;
+        for(int i = 1; i < s; i++){
+            int tmp = Math.max(r,nr);
+            r = Math.max(nr+nums[i],r);
+            nr = tmp;
+        }
+        return Math.max(r,nr);
+    }
 
     //O(n) space and O(n) time complexity with DP
     public int rob(int[] nums) {
