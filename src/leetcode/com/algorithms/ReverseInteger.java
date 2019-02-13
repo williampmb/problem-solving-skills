@@ -5,6 +5,8 @@
  */
 package leetcode.com.algorithms;
 
+import java.util.Stack;
+
 /**
  *
  * @author willi
@@ -40,6 +42,29 @@ public class ReverseInteger {
         }
 
         return (int) reverse;
+    }
+    
+    public int reverse(int x) {
+        int b = x;
+        Stack<Integer> s = new Stack<>();
+        int ans= 0;
+        while(b!=0){
+            int dig = b%10;
+            ans*=10;
+            ans+=dig;
+            s.push(dig);
+            b/=10;
+        }
+        int a = ans;
+         while(a!=0){
+            int dig = a%10;
+            int conf=  s.pop();
+            if(conf != dig) return 0;
+            a/=10;
+        }
+        
+        
+        return ans;
     }
 
 }
