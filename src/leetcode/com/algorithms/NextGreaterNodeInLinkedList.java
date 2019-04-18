@@ -1,6 +1,10 @@
 package leetcode.com.algorithms;
 
-public class NextGreaterNodeInLinkedList{
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
+
+public class NextGreaterNodeInLinkedList {
     int[] res;
 
     public int[] nextLargerNodes(ListNode head) {
