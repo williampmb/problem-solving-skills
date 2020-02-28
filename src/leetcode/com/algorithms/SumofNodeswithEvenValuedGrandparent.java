@@ -16,7 +16,7 @@ public class SumofNodeswithEvenValuedGrandparent {
             return 0;
         int sum = 0;
         if (granddad != null && granddad.val % 2 == 0) {
-            sum += granddad.val;
+            sum += node.val;
         }
 
         sum += sumEvenGradparent(node.left, node, dad);
