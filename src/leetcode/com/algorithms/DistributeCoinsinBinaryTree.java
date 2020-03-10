@@ -1,16 +1,17 @@
 package leetcode.com.algorithms;
 
 public class DistributeCoinsinBinaryTree{
+    int moves =0;
+
     public int distributeCoins(TreeNode root) {
-        Integer moves = new Integer(0);
-        dfs(root,moves);
+        dfs(root);
         return moves;
     }
 
-    private int dfs(TreeNode root, Integer moves) {
+    private int dfs(TreeNode root) {
         if(root == null) return 0;
-        int left = dfs(root.left,moves);
-        int right= dfs(root.right,moves);
+        int left = dfs(root.left);
+        int right= dfs(root.right);
         
         moves += Math.abs(left) + Math.abs(right);
 
