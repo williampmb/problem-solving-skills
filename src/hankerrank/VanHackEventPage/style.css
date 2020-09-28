@@ -111,13 +111,6 @@ nav ul li a {
   position: relative;
 }
 
-.card.card-premium {
-  border: 2px;
-  border-color: #ef4134;
-
-  border-style: solid;
-}
-
 .image-data {
   width: 100%;
   position: relative;
@@ -238,6 +231,7 @@ nav ul li a {
   position: absolute;
   top: 30px;
   padding-left: 20px;
+  color: #1455a9;
 }
 
 .cta a {
