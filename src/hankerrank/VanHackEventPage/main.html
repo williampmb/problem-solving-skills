@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie-edge" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script defer src="main.js"></script>
+</head>
+
+<body>
+
+    <header class="header">
+        <a href="/">VanHack</a>
+        <nav>
+            <ul class="menu">
+                <li><a href="/">About</a></li>
+                <li><a href="/">Services</a></li>
+                <li><a href="/">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="content">
+
+        <div id="events" class="list-events">
+
+        </div>
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="title">Example Modal</div>
+                    <button data-close-button class="close-button">&times;</button>
+                </div>
+                <div class="modal-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo delectus
+                    aspernatur
+                    tenetur doloremque veritatis nihil dolorem quibusdam porro, beatae id totam atque eum in incidunt
+                    molestiae
+                    ipsa enim quisquam eaque. Odit hic ad esse rerum explicabo. Culpa distinctio a quibusdam, aliquam,
+                    ipsam
+                    unde modi mollitia optio doloremque itaque est laborum ipsa harum quasi nulla iure beatae. Quis
+                    voluptate
+                    porro unde sunt nulla ipsa, recusandae facilis beatae consequatur, architecto non pariatur
+                    voluptatum
+                    dignissimos fuga temporibus laudantium exercitationem. Est rem quasi nisi!</div>
+            </div>
+
+        </div>
+        <div class="svg-model">
+            <svg id="premium-svg" width="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <filter id="f1" x="0" y="0" width="100%" height="150%">
+                        <feOffset result="offOut" in="SourceGraphic" dx="10" dy="5" />
+                        <feColorMatrix result="matrixOut" in="offOut" type="matrix"
+                            values="0.2 0 0 0 0 0 0.2 0 0 0 0 0 0.2 0 0 0 0 0 1 0" />
+                        <feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="5" />
+                        <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+                    </filter>
+                </defs>
+                <path stroke="#000" id="svg_2"
+                    d="m0,0l138.27586,0l0,74.7314c-69.13793,0 -69.13793,28.47403 -138.27586,12.2956l0,-87.027z"
+                    stroke-opacity="null" stroke-width="0" fill="#EF4134" filter="url(#f1)" />
+            </svg>
+        </div>
+    </div>
+    <div id="overlay"></div>
+    <button data-modal-target="#modal">Open</button>
+    <footer class="footer"></footer>
+</body>
+
+</html>

@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie-edge" />
   <link rel="stylesheet" href="./style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script defer src="main.js"></script>
 </head>
 
 <body>
@@ -23,17 +24,15 @@
   </header>
   <div class="content">
 
-    <div class="list-events">
+    <div id="events" class="list-events">
       <div class="card">
         <div class="image-data">
           <div class="background-image">
             <i class="fa fa-calendar"></i>
           </div>
-          <div class="publication-details">
-            <span class="date">
-              March 30, 2020
-            </span>
-          </div>
+          <span class="publication-details date">
+            March 30, 2020
+          </span>
         </div>
         <div class="post-data">
           <h1 class="title">Artificial Inteligence</h1>
@@ -42,7 +41,6 @@
             Cras in risus nisi. Fusce feugiat diam nunc, sit amet interdum
             ligula vehicula vitae. Sed gravida turpis at purus volutpat
           </p>
-          <!-- <div class="cta"><a href="#">Read More &rarr;</a></div> -->
         </div>
         <div class="details">
           <div class="flag">
@@ -62,11 +60,6 @@
                 stroke-opacity="null" stroke-width="0" fill="#EF4134" filter="url(#f1)" />
             </svg>
           </div>
-          <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 200">
-              <path fill="#00ffff" fill-opacity="1"
-                d="M0,192L30,176C60,160,120,128,180,144C240,160,300,224,360,218.7C420,213,480,139,540,112C600,85,660,107,720,112C780,117,840,107,900,90.7C960,75,1020,53,1080,74.7C1140,96,1200,160,1260,154.7C1320,149,1380,75,1410,37.3L1440,0L1440,0L1410,0C1380,0,1320,0,1260,0C1200,0,1140,0,1080,0C1020,0,960,0,900,0C840,0,780,0,720,0C660,0,600,0,540,0C480,0,420,0,360,0C300,0,240,0,180,0C120,0,60,0,30,0L0,0Z">
-              </path>
-            </svg -->
           <div class="cta"><a href="#">Read More &rarr;</a></div>
         </div>
       </div>
@@ -153,8 +146,24 @@
         </div>
       </div>
     </div>
-  </div>
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="title">Example Modal</div>
+          <button data-close-button class="close-button">&times;</button>
+        </div>
+        <div class="modal-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo delectus aspernatur
+          tenetur doloremque veritatis nihil dolorem quibusdam porro, beatae id totam atque eum in incidunt molestiae
+          ipsa enim quisquam eaque. Odit hic ad esse rerum explicabo. Culpa distinctio a quibusdam, aliquam, ipsam
+          unde modi mollitia optio doloremque itaque est laborum ipsa harum quasi nulla iure beatae. Quis voluptate
+          porro unde sunt nulla ipsa, recusandae facilis beatae consequatur, architecto non pariatur voluptatum
+          dignissimos fuga temporibus laudantium exercitationem. Est rem quasi nisi!</div>
+      </div>
 
+    </div>
+  </div>
+  <div id="overlay"></div>
+  <button data-modal-target="#modal">Open</button>
   <footer class="footer"></footer>
 </body>
 
