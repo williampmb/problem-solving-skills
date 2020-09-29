@@ -159,7 +159,7 @@ nav ul li a {
 }
 
 .details {
-  background-color: #fff;
+  background-color: white;
   display: flex;
   flex-direction: column;
   flex-basis: 20%;
@@ -179,6 +179,7 @@ nav ul li a {
   background-color: #fff;
   padding: 2rem 3rem;
   position: relative;
+  min-width: 550px;
 }
 
 .title {
@@ -192,6 +193,10 @@ nav ul li a {
   text-transform: uppercase;
   color: #a2a2a2;
   margin: 0.8rem 0 1rem 0;
+}
+
+.subtitle span {
+  padding-left: 8px;
 }
 
 .description {
@@ -220,20 +225,30 @@ nav ul li a {
   height: 80%;
 }
 
+.premium-flag {
+  position: absolute;
+  top: 30px;
+  padding-left: 23px;
+  color: white;
+  text-shadow: 1px 1px #000;
+  text-align: center;
+}
+
+.no-premium-event {
+  position: absolute;
+  top: 30px;
+  color: #1455a9;
+  text-shadow: 1px 1px #efefef;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
 .cta {
+  cursor: pointer;
   display: flex;
   text-align: right;
   font-weight: bold;
   align-items: flex-start;
-  margin-bottom: 20px;
-}
-
-.premium-flag {
-  position: absolute;
-  top: 30px;
-  padding-left: 20px;
-  color: white;
-  text-shadow: 1px 1px #000;
 }
 
 .cta a {
@@ -363,7 +378,7 @@ nav ul li a {
 
   .card:hover .author,
   .card:hover .date {
-    transform: translateY(25px);
+    transform: translateY(0px);
     opacity: 1;
   }
 
