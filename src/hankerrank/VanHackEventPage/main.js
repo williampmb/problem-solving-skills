@@ -244,6 +244,9 @@ function openModal(modal, event) {
   const modalLocale = document.getElementById("modal-locale");
   modalLocale.innerHTML = event.locale;
 
+  const modalDate = document.getElementById("modal-date");
+  modalDate.innerHTML = event.date;
+
   modal.classList.add("active");
   overlay.classList.add("active");
 }
