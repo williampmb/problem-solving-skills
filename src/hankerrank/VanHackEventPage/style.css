@@ -281,13 +281,31 @@ nav ul li a {
   border-radius: 10px;
   z-index: 10;
   background-color: white;
+  display: grid;
+  grid-template-rows: 200px 50px 50px 400px 100px;
   width: 900px;
   max-width: 80%;
-  height: 600px;
+}
+
+.modal-subtitle {
+  font-size: 0.8rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #a2a2a2;
+  padding: 10px 15px;
 }
 
 .modal.active {
   transform: translate(-50%, -50%) scale(1);
+}
+
+#modal-cover {
+  display: flex;
+  float: 1px;
+  background-size: cover;
+  background-position: center;
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px;
 }
 
 .modal-header {

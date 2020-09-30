@@ -1,19 +1,19 @@
 //CONSTANT EVENT TYPE
-const meetUp = "Meet Up";
-const leap = "Leap";
-const recruitingMission = "Recruiting Mission";
-const vanHackathon = "VanHackathon";
-const premiumOnly = "PREMIUM<br/>ONLY";
-const openWebinar = "Open Webinar";
+const MEET_UP = "Meet Up";
+const LEAP = "Leap";
+const RECRUTING_MISSION = "Recruiting Mission";
+const VANHACKATON = "VanHackathon";
+const PREMIUM_ONLY = "PREMIUM<br/>ONLY";
+const OPENWEBINAR = "Open Webinar";
 
 //ENUM TO EVENTYPE
 EventType = Object.freeze({
-  MEETUP: meetUp,
-  LEAP: leap,
-  RECRUTING: recruitingMission,
-  VANHACKATON: vanHackathon,
-  PREMIUM_ONLY: premiumOnly,
-  OPEN4ALL: openWebinar,
+  MEETUP: MEET_UP,
+  LEAP: LEAP,
+  RECRUTING: RECRUTING_MISSION,
+  VANHACKATON: VANHACKATON,
+  PREMIUM_ONLY: PREMIUM_ONLY,
+  OPEN4ALL: OPENWEBINAR,
 });
 
 //EVENTS TO FILL THE PAGE
@@ -22,56 +22,70 @@ const events = [
     title: "Premium Class Vanhack",
     locale: "Online",
     date: "Octuber 26, 2020",
+    cover: "./resource/headway-F2KRf_QfCqw-unsplash.jpg",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore officiis aut, quisquam quas obcaecati ut? Perferendis, dolores assumenda.",
+    longDescription: "",
     type: EventType.PREMIUM_ONLY,
   },
   {
     title: "Premium Mock Interview",
     locale: "Online",
     date: "Octuber 30, 2020",
+    cover: "./resource/headway-F2KRf_QfCqw-unsplash.jpg",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore officiis aut, quisquam quas obcaecati ut? Perferendis, dolores assumenda.",
+    longDescription: "",
     type: EventType.PREMIUM_ONLY,
   },
   {
     title: "Trial Premium Webinar",
     locale: "Montreal",
     date: "Octuber 25, 2020",
+    cover: "./resource/headway-F2KRf_QfCqw-unsplash.jpg",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi inventore quia aliquid blanditiis mollitia et explicabo?",
+    longDescription: "",
     type: EventType.MEETUP,
   },
   {
     title: "Trial Premium Webinar",
     locale: "Online",
     date: "Octuber 27, 2020",
+    cover: "./resource/headway-F2KRf_QfCqw-unsplash.jpg",
     description:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt deleniti expedita cum nesciunt autem.",
+    longDescription: "",
     type: EventType.LEAP,
   },
   {
     title: "Trial Premium Webinar",
     locale: "Toronto",
     date: "Octuber 29, 2020",
+    cover: "./resource/headway-F2KRf_QfCqw-unsplash.jpg",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit accusantium, tenetur exercitationem quam ullam sint aperiam aut praesentium.",
+    longDescription: "",
     type: EventType.RECRUTING,
   },
   {
     title: "Trial Premium Webinar",
     locale: "Online",
     date: "November 9, 2020",
+    cover: "./resource/headway-F2KRf_QfCqw-unsplash.jpg",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis ratione, provident vitae eum error nobis!",
+    longDescription: "",
     type: EventType.VANHACKATON,
   },
   {
     title: "Trial Premium Webinar",
     locale: "Online",
     date: "November 16, 2020",
+    cover: "./resource/headway-F2KRf_QfCqw-unsplash.jpg",
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia aperiam est, dolores incidunt maiores officiis magnam enim beatae nulla! Enim?",
+    longDescription: "",
     type: EventType.OPEN4ALL,
   },
 ];
@@ -82,6 +96,10 @@ function startup() {
   events.forEach((event) => {
     let eventCard = createCard(event);
 
+    eventCard.addEventListener("click", () => {
+      const modal = document.getElementById("modal");
+      openModal(modal, event);
+    });
     listEvents.appendChild(eventCard);
   });
 }
@@ -199,7 +217,6 @@ startup();
 
 /**/
 /* MODAL LOGIC OPEN AND CLOSE*/
-const openModalButtons = document.querySelectorAll("[data-modal-target]");
 const closeModalButtons = document.querySelectorAll("[data-close-button]");
 const overlay = document.getElementById("overlay");
 
@@ -209,13 +226,6 @@ overlay.addEventListener("click", () => {
     closeModal(modal);
   });
 });
-openModalButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const modal = document.querySelector(button.dataset.modalTarget);
-    openModal(modal);
-  });
-});
-
 closeModalButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const modal = button.closest(".modal");
@@ -223,8 +233,17 @@ closeModalButtons.forEach((button) => {
   });
 });
 
-function openModal(modal) {
+function openModal(modal, event) {
   if (modal == null) return;
+  const modalTitle = document.getElementById("modal-title");
+  modalTitle.innerHTML = event.title;
+
+  const modalCover = document.getElementById("modal-cover");
+  modalCover.style.backgroundImage = "url('" + event.cover + "')";
+
+  const modalLocale = document.getElementById("modal-locale");
+  modalLocale.innerHTML = event.locale;
+
   modal.classList.add("active");
   overlay.classList.add("active");
 }
