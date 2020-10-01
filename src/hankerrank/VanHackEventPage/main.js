@@ -25,7 +25,8 @@ const events = [
     cover: "./resource/headway-F2KRf_QfCqw-unsplash.jpg",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore officiis aut, quisquam quas obcaecati ut? Perferendis, dolores assumenda.",
-    longDescription: "",
+    longDescription:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum dolores reprehenderit vero neque iure hic ratione ea totam, deserunt repellat.<br/><br/>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt, temporibus.     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad fugit, error rerum iste cupiditate ratione, esse quas ducimus perspiciatis ex, ipsa harum nesciunt facilis! Architecto, reprehenderit deserunt! Eveniet, eius sapiente facere ut natus, saepe, tenetur expedita officia laudantium eum explicabo consequatur. Enim error at tempore esse. Aliquid reiciendis labore tenetur.",
     type: EventType.PREMIUM_ONLY,
   },
   {
@@ -35,7 +36,8 @@ const events = [
     cover: "./resource/headway-F2KRf_QfCqw-unsplash.jpg",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore officiis aut, quisquam quas obcaecati ut? Perferendis, dolores assumenda.",
-    longDescription: "",
+    longDescription:
+      "Lorem ipsum dolor sit amet.<br/><br/>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro iste ipsam explicabo sint quibusdam repellendus harum, rerum recusandae quos accusamus exercitationem ullam quas eaque tempora eius corrupti officia eveniet ratione omnis cum aperiam incidunt eligendi hic! Eaque dolore officia corporis?<br/><br/>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam libero autem deserunt eum maiores quidem, sit aliquam sint vitae. Laudantium, a quia nihil sit, officia neque corrupti mollitia consequatur debitis ipsam nostrum praesentium expedita at enim quibusdam? Quasi dicta totam, porro animi, iste illo eligendi architecto sint velit exercitationem quam mollitia ratione repudiandae laborum modi ad minima repellat temporibus, pariatur est aperiam ducimus voluptas. Recusandae dignissimos ullam consectetur autem quis iure eligendi rem laborum vitae vel nobis quidem culpa, impedit voluptatem quam molestiae ab beatae facere minus laudantium, sint eius odio tempore? Soluta, quos dignissimos assumenda deserunt accusantium tempora fugit!<br/><br/>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias repudiandae quia voluptate impedit provident assumenda?",
     type: EventType.PREMIUM_ONLY,
   },
   {
@@ -45,7 +47,8 @@ const events = [
     cover: "./resource/headway-F2KRf_QfCqw-unsplash.jpg",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi inventore quia aliquid blanditiis mollitia et explicabo?",
-    longDescription: "",
+    longDescription:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas sit vero similique iste, voluptatem incidunt deleniti earum rem impedit quibusdam amet necessitatibus repellendus? Ab assumenda excepturi nihil accusamus iure, temporibus, tenetur harum sit eligendi nisi eveniet dolore recusandae soluta, sapiente commodi. Accusamus iste eveniet veritatis expedita aliquam nostrum iure pariatur earum labore eum excepturi quo praesentium, at quia asperiores aperiam adipisci necessitatibus ex, cupiditate fugit nisi magni minima culpa deleniti? Corporis, blanditiis. Porro id ipsum laudantium nihil obcaecati laborum fuga error sapiente, ullam reiciendis illo ducimus quidem, perferendis reprehenderit optio ex rem voluptatum minus sequi illum! Enim eaque perspiciatis minus dolorum veritatis laudantium quis labore, dolores nisi quibusdam a veniam. Magni corporis delectus assumenda numquam esse, praesentium mollitia temporibus iusto sed eaque incidunt et dolores culpa nobis quia minus hic quam impedit excepturi ex voluptatem placeat sapiente eos. Quos totam accusantium excepturi non, enim eum voluptate in soluta fugiat quod vel numquam debitis! Ratione non quidem enim ipsum soluta, consequuntur veritatis molestias ipsam perspiciatis animi officiis hic laborum illum quibusdam, explicabo amet. Ullam officiis error unde aspernatur excepturi enim reiciendis nobis illo accusamus repellendus magnam velit, nisi eos a quidem assumenda fugiat laudantium itaque ipsum. Totam quod neque eum quia?",
     type: EventType.MEETUP,
   },
   {
@@ -55,7 +58,8 @@ const events = [
     cover: "./resource/headway-F2KRf_QfCqw-unsplash.jpg",
     description:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt deleniti expedita cum nesciunt autem.",
-    longDescription: "",
+    longDescription:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, assumenda!<br/><br/>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, cumque!<br/><br/>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, error beatae. Sint amet perferendis assumenda cupiditate fugiat provident reprehenderit eligendi sunt temporibus itaque, veritatis officia ducimus, deserunt tenetur. Quibusdam, magnam?<br/><br/>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse repellendus saepe nihil reiciendis, ad quidem minima cupiditate sed sapiente aut! Saepe ipsam nemo, dignissimos inventore voluptas doloremque quia. Veniam hic incidunt in. Ducimus voluptas, ut sint expedita eligendi distinctio adipisci?<br/><br/>Lorem ipsum dolor sit amet.<br/><br/>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, eaque!",
     type: EventType.LEAP,
   },
   {
@@ -65,7 +69,8 @@ const events = [
     cover: "./resource/headway-F2KRf_QfCqw-unsplash.jpg",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit accusantium, tenetur exercitationem quam ullam sint aperiam aut praesentium.",
-    longDescription: "",
+    longDescription:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, assumenda!<br/><br/>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, cumque!<br/><br/>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, error beatae. Sint amet perferendis assumenda cupiditate fugiat provident reprehenderit eligendi sunt temporibus itaque, veritatis officia ducimus, deserunt tenetur. Quibusdam, magnam?<br/><br/>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse repellendus saepe nihil reiciendis, ad quidem minima cupiditate sed sapiente aut! Saepe ipsam nemo, dignissimos inventore voluptas doloremque quia. Veniam hic incidunt in. Ducimus voluptas, ut sint expedita eligendi distinctio adipisci?<br/><br/>Lorem ipsum dolor sit amet.<br/><br/>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, eaque!",
     type: EventType.RECRUTING,
   },
   {
@@ -75,7 +80,8 @@ const events = [
     cover: "./resource/headway-F2KRf_QfCqw-unsplash.jpg",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis ratione, provident vitae eum error nobis!",
-    longDescription: "",
+    longDescription:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, assumenda!<br/><br/>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, cumque!<br/><br/>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, error beatae. Sint amet perferendis assumenda cupiditate fugiat provident reprehenderit eligendi sunt temporibus itaque, veritatis officia ducimus, deserunt tenetur. Quibusdam, magnam?<br/><br/>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse repellendus saepe nihil reiciendis, ad quidem minima cupiditate sed sapiente aut! Saepe ipsam nemo, dignissimos inventore voluptas doloremque quia. Veniam hic incidunt in. Ducimus voluptas, ut sint expedita eligendi distinctio adipisci?<br/><br/>Lorem ipsum dolor sit amet.<br/><br/>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, eaque!",
     type: EventType.VANHACKATON,
   },
   {
@@ -85,7 +91,8 @@ const events = [
     cover: "./resource/headway-F2KRf_QfCqw-unsplash.jpg",
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia aperiam est, dolores incidunt maiores officiis magnam enim beatae nulla! Enim?",
-    longDescription: "",
+    longDescription:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, assumenda!<br/><br/>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, cumque!<br/><br/>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, error beatae. Sint amet perferendis assumenda cupiditate fugiat provident reprehenderit eligendi sunt temporibus itaque, veritatis officia ducimus, deserunt tenetur. Quibusdam, magnam?<br/><br/>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse repellendus saepe nihil reiciendis, ad quidem minima cupiditate sed sapiente aut! Saepe ipsam nemo, dignissimos inventore voluptas doloremque quia. Veniam hic incidunt in. Ducimus voluptas, ut sint expedita eligendi distinctio adipisci?<br/><br/>Lorem ipsum dolor sit amet.<br/><br/>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, eaque!",
     type: EventType.OPEN4ALL,
   },
 ];
@@ -98,6 +105,7 @@ function startup() {
 
     eventCard.addEventListener("click", () => {
       const modal = document.getElementById("modal");
+      fillContentModal(modal, event);
       openModal(modal, event);
     });
     listEvents.appendChild(eventCard);
@@ -215,7 +223,17 @@ function createRightDivCard(event) {
 
 startup();
 
-/**/
+/* MODAL CONFIRMATION REGISTRATION */
+const registerBtn = document.getElementById("register-btn");
+registerBtn.addEventListener("click", () => {
+  const confirmationModal = document.querySelector(".modal-confirmation");
+  const modal = document.querySelector(".modal");
+  closeModal(modal);
+  openModal(confirmationModal);
+});
+
+/* END MODAL CONFIRMATION REGISTRATION*/
+
 /* MODAL LOGIC OPEN AND CLOSE*/
 const closeModalButtons = document.querySelectorAll("[data-close-button]");
 const overlay = document.getElementById("overlay");
@@ -226,6 +244,7 @@ overlay.addEventListener("click", () => {
     closeModal(modal);
   });
 });
+
 closeModalButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const modal = button.closest(".modal");
@@ -233,7 +252,7 @@ closeModalButtons.forEach((button) => {
   });
 });
 
-function openModal(modal, event) {
+function fillContentModal(modal, event) {
   if (modal == null) return;
   const modalTitle = document.getElementById("modal-title");
   modalTitle.innerHTML = event.title;
@@ -247,6 +266,12 @@ function openModal(modal, event) {
   const modalDate = document.getElementById("modal-date");
   modalDate.innerHTML = event.date;
 
+  const modalDescription = document.getElementById("modal-body");
+  modalDescription.innerHTML = event.longDescription;
+}
+
+function openModal(modal) {
+  if (modal == null) return;
   modal.classList.add("active");
   overlay.classList.add("active");
 }
