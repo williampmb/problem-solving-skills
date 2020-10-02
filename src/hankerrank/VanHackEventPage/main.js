@@ -99,6 +99,21 @@ const events = [
   },
 ];
 
+function eventClasse(event) {
+  const type = event.type;
+
+  if (type === EventType.PREMIUM_ONLY) {
+    return 1;
+  } else if (
+    type === EventType.LEAP ||
+    type === EventType.RECRUTING_MISSION ||
+    type === EventType.VANHACKATON
+  ) {
+    return 2;
+  }
+  return 3;
+}
+
 //STARTUP SCRIPT BEFORE LOAD
 function startup() {
   const listEvents = document.getElementById("events");
@@ -190,11 +205,15 @@ function createMiddleDivCard(event) {
 
 function createRightDivCard(event) {
   const premiumFlag = document.createElement("SPAN");
-  if (event.type === EventType.PREMIUM_ONLY) {
-    premiumFlag.classList.add("premium-flag");
-  } else {
-    premiumFlag.classList.add("no-premium-event");
-  }
+
+  const eventClass = eventClasse(event);
+
+  premiumFlag.classList.add("event-class" + eventClass);
+  // if (event.type === EventType.PREMIUM_ONLY) {
+  //   premiumFlag.classList.add("premium-flag");
+  // } else {
+  //   premiumFlag.classList.add("event-class2");
+  // }
   premiumFlag.innerHTML = event.type;
 
   const svgPremium = document.getElementById("premium-svg");
@@ -286,11 +305,27 @@ closeModalInfoButtons.forEach((button) => {
 
 function fillContentModal(modal, event) {
   if (!modal) return;
+
   const modalTitle = document.getElementById("modal-title");
   modalTitle.innerHTML = event.title;
 
   const modalCover = document.getElementById("modal-cover");
   modalCover.style.backgroundImage = "url('" + event.cover + "')";
+
+  const eventType = document.createElement("SPAN");
+
+  if (event.type === EventType.PREMIUM_ONLY) {
+    const svgPremium = document.getElementById("premium-svg");
+    const clonePremium = svgPremium.cloneNode(true);
+    clonePremium.classList.add("modal-header-right");
+    eventType.classList.add("premium-flag");
+
+    modalCover.appendChild(clonePremium);
+  } else {
+    eventType.classList.add("event-class2");
+  }
+  eventType.innerHTML = event.type;
+  modalCover.appendChild(eventType);
 
   const modalLocale = document.getElementById("modal-locale");
   modalLocale.innerHTML = event.locale;

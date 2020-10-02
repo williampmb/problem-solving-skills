@@ -61,6 +61,7 @@ a {
   display: flex;
   height: 50px;
   background-color: rgba(41, 46, 51);
+  margin-top: 10px;
 }
 
 nav ul li a {
@@ -93,6 +94,7 @@ nav ul li a {
   align-items: center;
   height: 100%;
 }
+
 .card {
   display: flex;
   flex-direction: column;
@@ -102,13 +104,10 @@ nav ul li a {
   position: relative;
 }
 
-.card {
-  display: flex;
-  flex-direction: column;
-  max-height: 400px;
-  box-shadow: 2px 0.8rem 1rem rgba(0, 0, 0, 0.2);
-  margin: 1rem 0 0 0;
-  position: relative;
+.close-details {
+  position: absolute;
+  top: -40px;
+  right: -20px;
 }
 
 .image-data {
@@ -225,7 +224,7 @@ nav ul li a {
   height: 80%;
 }
 
-.premium-flag {
+.event-class1 {
   position: absolute;
   top: 30px;
   padding-left: 23px;
@@ -234,11 +233,20 @@ nav ul li a {
   text-align: center;
 }
 
-.no-premium-event {
+.event-class2 {
   position: absolute;
   top: 30px;
-  color: #1455a9;
-  text-shadow: 1px 1px #efefef;
+  color: #ef4134;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.event-class3 {
+  position: absolute;
+  top: 30px;
+  color: black;
   text-align: left;
   font-size: 0.9rem;
 }
@@ -270,6 +278,7 @@ nav ul li a {
   transition: transform 0.3s;
   transform-origin: left;
 }
+
 /* MODAL */
 .modal {
   position: fixed;
@@ -282,7 +291,7 @@ nav ul li a {
   z-index: 10;
   background-color: white;
   display: grid;
-  grid-template-rows: 200px 50px 50px 400px 100px;
+  grid-template-rows: 250px 80px 50px 350px 100px;
   width: 900px;
   max-width: 80%;
 }
@@ -319,6 +328,12 @@ nav ul li a {
   border-top-right-radius: 9px;
 }
 
+.modal-header-right {
+  margin-left: -1px;
+  margin-top: -1px;
+  border-top-left-radius: 10px;
+}
+
 #modal-date {
   padding-left: 5px;
 }
@@ -332,15 +347,6 @@ nav ul li a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.modal-header .close-button {
-  cursor: pointer;
-  border: none;
-  outline: none;
-  background: none;
-  font-size: 1.25rem;
-  font-weight: bold;
 }
 
 .modal-body {
@@ -372,6 +378,14 @@ nav ul li a {
   margin-right: 40px;
 }
 
+.modal-footer label:hover {
+  background: rgba(39, 174, 96, 0.8);
+  transition: 0.2s;
+  color: rgba(0, 0, 0, 0.7);
+  border: 1px solid #26a65b;
+  box-shadow: 1px 0.4rem 1rem rgba(0, 110, 19, 0.5);
+}
+
 .modal-footer label {
   cursor: pointer;
   background-color: #27ae60;
@@ -388,7 +402,7 @@ nav ul li a {
 /* MODAL END*/
 
 /* MODAL CONFIRMATION */
-.modal-confirmation {
+.modal-info {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -403,11 +417,11 @@ nav ul li a {
   z-index: 20;
 }
 
-.modal-confirmation.active {
+.modal-info.active {
   transform: translate(-50%, -50%) scale(1);
 }
 
-.modal-conf-header {
+.modal-info-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -418,7 +432,7 @@ nav ul li a {
   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.2);
 }
 
-.modal-conf-header h2 {
+.modal-info-header h2 {
   color: white;
   padding-left: 32px;
   font-weight: normal;
@@ -479,7 +493,63 @@ nav ul li a {
 .close-btn:hover {
   background: #27ae60;
   color: white;
+  transition: 0.2s;
+}
+
+/* MODAL CONFIRMATION END*/
+
+/* MODAL ERRO */
+.modal-info-header.error {
+  background: #ff3333;
+}
+
+.error-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  border: 2px solid #ff3333;
+  margin: 30px 0 0 160px;
+}
+
+.fa-exclamation {
+  font-size: 40px;
+  font-weight: bold;
+  color: #ff3333;
+}
+
+.close-btn.error {
+  border: 1px solid #ff3333;
+  color: #ff3333;
+}
+
+.close-btn.error:hover {
+  background: #ff3333;
+  color: white;
   transition: 0.5s;
+}
+
+.member-btn {
+  position: absolute;
+  bottom: 12px;
+  left: 20px;
+  border: 1px solid #27ae60;
+  background: #27ae60;
+  color: white;
+  border-radius: 3px;
+  padding: 8px 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.member-btn:hover {
+  background: rgba(39, 174, 96, 0.8);
+  transition: 0.2s;
+  color: rgba(0, 0, 0, 0.7);
+  border: 1px solid #26a65b;
+  box-shadow: 1px 0.4rem 1rem rgba(0, 110, 19, 0.5);
 }
 
 #click {
@@ -502,10 +572,10 @@ nav ul li a {
 }
 
 .click-me:hover {
-  background: #219150;
+  background: #219150ff;
 }
 
-/* MODAL CONFIRMATION END*/
+/* MODAL ERROR END*/
 
 .cta a:hover::before {
   transform: scaleX(1);
