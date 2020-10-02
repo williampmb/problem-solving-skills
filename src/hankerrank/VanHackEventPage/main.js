@@ -1,3 +1,5 @@
+let currentEvent = {};
+
 //CONSTANT EVENT TYPE
 const MEET_UP = "Meet Up";
 const LEAP = "Leap";
@@ -105,6 +107,7 @@ function startup() {
 
     eventCard.addEventListener("click", () => {
       const modal = document.getElementById("modal");
+      currentEvent = event;
       fillContentModal(modal, event);
       openModal(modal, event);
     });
@@ -226,16 +229,38 @@ startup();
 /* MODAL CONFIRMATION REGISTRATION */
 const registerBtn = document.getElementById("register-btn");
 registerBtn.addEventListener("click", () => {
-  const confirmationModal = document.querySelector(".modal-confirmation");
-  const modal = document.querySelector(".modal");
-  closeModal(modal);
-  openModal(confirmationModal);
+  if (!isCurrentEventPremium()) {
+    const confirmationModal = document.querySelector("#modal-success");
+    const modal = document.querySelector(".modal");
+    closeModal(modal);
+    fillConfirmationModal(confirmationModal, currentEvent);
+    openModal(confirmationModal);
+  } else {
+    const erroModal = document.querySelector("#modal-error");
+    const modal = document.querySelector(".modal");
+    closeModal(modal);
+    openModal(erroModal);
+  }
 });
+
+function fillConfirmationModal(modal, event) {
+  if (!modal) return;
+}
+
+function isCurrentEventPremium() {
+  if (currentEvent && currentEvent.type === EventType.PREMIUM_ONLY) {
+    return true;
+  }
+  return false;
+}
 
 /* END MODAL CONFIRMATION REGISTRATION*/
 
 /* MODAL LOGIC OPEN AND CLOSE*/
 const closeModalButtons = document.querySelectorAll("[data-close-button]");
+const closeModalInfoButtons = document.querySelectorAll(
+  "[data-close-modal-info]"
+);
 const overlay = document.getElementById("overlay");
 
 overlay.addEventListener("click", () => {
@@ -252,8 +277,15 @@ closeModalButtons.forEach((button) => {
   });
 });
 
+closeModalInfoButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const modal = button.closest(".modal-info");
+    closeModal(modal);
+  });
+});
+
 function fillContentModal(modal, event) {
-  if (modal == null) return;
+  if (!modal) return;
   const modalTitle = document.getElementById("modal-title");
   modalTitle.innerHTML = event.title;
 
