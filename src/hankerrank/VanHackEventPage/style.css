@@ -50,11 +50,16 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  background-color: rgba(40, 165, 232);
-  color: white;
+  padding-left: 100px;
+  padding-right: 100px;
+  background-color: white;
+  color: rgba(40, 165, 232);
   height: 100px;
   font-size: 20px;
+}
+
+.selected {
+  border-bottom: 2px solid rgba(40, 165, 232);
 }
 
 .footer {
@@ -66,11 +71,17 @@ a {
 
 nav ul li a {
   font-size: 1.5rem;
+  transition: 0.2s;
+}
+
+nav ul li a:hover {
+  transform: translateY(-4px);
 }
 
 .content {
   display: flex;
   min-height: 100%;
+  min-width: 850px;
 }
 
 .menu {
@@ -294,6 +305,32 @@ nav ul li a {
   grid-template-rows: 250px 80px 50px 350px 100px;
   width: 900px;
   max-width: 80%;
+}
+
+.share {
+  cursor: pointer;
+  background-color: #3c74cf;
+  width: 28px;
+  height: 28px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: white;
+  transition: 0.2s;
+  box-shadow: 1px 0.2rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.share:hover {
+  background-color: darkblue;
+  box-shadow: 1px 0.2rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.share-link {
+  margin-right: 15px;
+  width: 130px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .modal-subtitle {

@@ -24,7 +24,8 @@ const events = [
     title: "Premium Class Vanhack",
     locale: "Online",
     date: "Octuber 26, 2020",
-    cover: "./resource/headway-F2KRf_QfCqw-unsplash.jpg",
+    cover:
+      "https://images.unsplash.com/photo-1530025809667-1f4bcff8e60f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1540&q=80",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore officiis aut, quisquam quas obcaecati ut? Perferendis, dolores assumenda.",
     longDescription:
@@ -35,7 +36,8 @@ const events = [
     title: "Premium Mock Interview",
     locale: "Online",
     date: "Octuber 30, 2020",
-    cover: "./resource/headway-F2KRf_QfCqw-unsplash.jpg",
+    cover:
+      "https://images.unsplash.com/photo-1497493292307-31c376b6e479?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore officiis aut, quisquam quas obcaecati ut? Perferendis, dolores assumenda.",
     longDescription:
@@ -46,7 +48,8 @@ const events = [
     title: "Trial Premium Webinar",
     locale: "Montreal",
     date: "Octuber 25, 2020",
-    cover: "./resource/headway-F2KRf_QfCqw-unsplash.jpg",
+    cover:
+      "https://images.unsplash.com/photo-1508693926297-1d61ee3df82a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi inventore quia aliquid blanditiis mollitia et explicabo?",
     longDescription:
@@ -54,10 +57,11 @@ const events = [
     type: EventType.MEETUP,
   },
   {
-    title: "Trial Premium Webinar",
+    title: "Leap together",
     locale: "Online",
     date: "Octuber 27, 2020",
-    cover: "./resource/headway-F2KRf_QfCqw-unsplash.jpg",
+    cover:
+      "https://images.unsplash.com/photo-1573496267526-08a69e46a409?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1349&q=80",
     description:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt deleniti expedita cum nesciunt autem.",
     longDescription:
@@ -68,7 +72,8 @@ const events = [
     title: "Trial Premium Webinar",
     locale: "Toronto",
     date: "Octuber 29, 2020",
-    cover: "./resource/headway-F2KRf_QfCqw-unsplash.jpg",
+    cover:
+      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit accusantium, tenetur exercitationem quam ullam sint aperiam aut praesentium.",
     longDescription:
@@ -76,10 +81,11 @@ const events = [
     type: EventType.RECRUTING,
   },
   {
-    title: "Trial Premium Webinar",
+    title: "Ready for Challenge?",
     locale: "Online",
     date: "November 9, 2020",
-    cover: "./resource/headway-F2KRf_QfCqw-unsplash.jpg",
+    cover:
+      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis ratione, provident vitae eum error nobis!",
     longDescription:
@@ -87,10 +93,11 @@ const events = [
     type: EventType.VANHACKATON,
   },
   {
-    title: "Trial Premium Webinar",
+    title: "Network is the Key",
     locale: "Online",
     date: "November 16, 2020",
-    cover: "./resource/headway-F2KRf_QfCqw-unsplash.jpg",
+    cover:
+      "https://images.unsplash.com/photo-1551818255-e6e10975bc17?ixlib=rb-1.2.1&auto=format&fit=crop&w=1525&q=80",
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia aperiam est, dolores incidunt maiores officiis magnam enim beatae nulla! Enim?",
     longDescription:
@@ -209,11 +216,6 @@ function createRightDivCard(event) {
   const eventClass = eventClasse(event);
 
   premiumFlag.classList.add("event-class" + eventClass);
-  // if (event.type === EventType.PREMIUM_ONLY) {
-  //   premiumFlag.classList.add("premium-flag");
-  // } else {
-  //   premiumFlag.classList.add("event-class2");
-  // }
   premiumFlag.innerHTML = event.type;
 
   const svgPremium = document.getElementById("premium-svg");
@@ -314,18 +316,18 @@ function fillContentModal(modal, event) {
 
   const eventType = document.createElement("SPAN");
 
-  if (event.type === EventType.PREMIUM_ONLY) {
-    const svgPremium = document.getElementById("premium-svg");
-    const clonePremium = svgPremium.cloneNode(true);
-    clonePremium.classList.add("modal-header-right");
-    eventType.classList.add("premium-flag");
-
-    modalCover.appendChild(clonePremium);
-  } else {
-    eventType.classList.add("event-class2");
-  }
-  eventType.innerHTML = event.type;
-  modalCover.appendChild(eventType);
+  let title =
+    "http://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.vanhack.com&p[title]=" +
+    event.title.replace(" ", "+");
+  document.getElementById("face-anchor").setAttribute("href", title);
+  title =
+    "https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fwww.vanhack.com&title=Vanhack+Event" +
+    event.title.replace(" ", "+");
+  document.getElementById("link-anchor").setAttribute("href", title);
+  title =
+    "http://twitter.com/share?text=Vanhack+Event&url=https%3A%2F%2Fwww.vanhack.com" +
+    event.title.replace(" ", "+");
+  document.getElementById("twit-anchor").setAttribute("href", title);
 
   const modalLocale = document.getElementById("modal-locale");
   modalLocale.innerHTML = event.locale;
