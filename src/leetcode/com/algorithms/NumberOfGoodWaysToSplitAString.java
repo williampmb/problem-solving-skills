@@ -37,7 +37,7 @@ public class NumberOfGoodWaysToSplitAString {
         return s1Char.size() == s2Char.size();
     }
 
-    // Better solution
+    // O(N) time complexity
     public static int numSplits(String s) {
         Map<Character, Integer> s1Map = new HashMap<>();
         Map<Character, Integer> s2Map = new HashMap<>();
