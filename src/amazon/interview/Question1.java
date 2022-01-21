@@ -7,7 +7,6 @@ import java.util.List;
 public class Question1 {
 
     public static void main(String[] args) {
-        System.out.println(0 ^ 0);
         int[] a = { 1, 0, 0, 0, 0, 1, 0, 0 };
         cellCompete(a, 1);
     }
