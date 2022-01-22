@@ -47,6 +47,6 @@ function coinChangeMemoizationRecursively(coins, amount, memo={}){
     return memo[amount];
 }
 
-console.log(coinChangeMemoization([1,2,5],11))
+console.log(coinChangeMemoization([1,2,5],10))
 console.log(coinChangeMemoization([2],3))
 console.log(coinChangeMemoization([2,5],0))
