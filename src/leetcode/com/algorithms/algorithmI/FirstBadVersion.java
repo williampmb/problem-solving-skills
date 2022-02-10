@@ -1,4 +1,4 @@
-package leetcode.com.algorithms.I;
+package leetcode.com.algorithms.algorithmI;
 
 public class FirstBadVersion {
  /* The isBadVersion API is defined in the parent class VersionControl.
