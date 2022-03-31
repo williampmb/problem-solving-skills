@@ -12,8 +12,10 @@ package leetcode.com.algorithms;
 public class ReverseWordsInAStringIII {
     public static void main (String[] args){
         ReverseWordsInAStringIII r = new ReverseWordsInAStringIII();
-        String reverseWords = r.reverseWords(" ");
-        System.out.println(reverseWords);
+        System.out.println(r.reverWords2("a bcd"));
+        System.out.println(r.reverWords2("a bc d"));
+        System.out.println(r.reverWords2("a bc d "));
+        System.out.println(r.reverWords2("a"));
     }
     public String reverseWords(String s) {
         int size = s.length();
@@ -29,5 +31,38 @@ public class ReverseWordsInAStringIII {
         }
         wholeString.append(eachWord.toString());
         return wholeString.toString();
+    }
+
+    public String reverWords2(String s){
+
+        char[] charsOfS = s.toCharArray();
+
+        int start = 0;
+        int end = 0;
+
+        for(int i = 0 ; i < charsOfS.length; i++){
+            if(charsOfS[i]==' '){
+                reverseWordInArr(charsOfS,start,end-1);
+                start = i +1;
+                end = i +1;
+            }else{
+                end++;
+            }
+        }
+        
+        reverseWordInArr(charsOfS,start,end-1);
+
+        return new String(charsOfS);
+
+    }
+
+    private void reverseWordInArr(char[] arr, int start, int end) {
+        while(start<end){
+            char tmp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = tmp;
+            start++;
+            end--;
+        }
     }
 }
